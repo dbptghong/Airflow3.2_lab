@@ -116,9 +116,29 @@ CREATE DATABASE airflow;
 GRANT ALL PRIVILEGES ON DATABASE airflow TO airflow;
 # 출력결과: GRANT
 
--- 5. 콘솔 탈출
+ALTER DATABASE airflow OWNER TO airflow;
+# 출력결과: ALTER DATABASE
+
+
+
+
+
+
+-- 5. 콘솔 탈출 (airflow db Owner airflow 확인)
 \q or exit
 
+postgres=# \l
+                                                     List of databases
+   Name    |  Owner   | Encoding | Locale Provider |   Collate   |    Ctype    | Locale | ICU Rules |   Access privileges
+-----------+----------+----------+-----------------+-------------+-------------+--------+-----------+-----------------------
+ airflow   | airflow  | UTF8     | libc            | en_US.UTF-8 | en_US.UTF-8 |        |           | =Tc/airflow          +
+           |          |          |                 |             |             |        |           | airflow=CTc/airflow
+ postgres  | postgres | UTF8     | libc            | en_US.UTF-8 | en_US.UTF-8 |        |           |
+ template0 | postgres | UTF8     | libc            | en_US.UTF-8 | en_US.UTF-8 |        |           | =c/postgres          +
+           |          |          |                 |             |             |        |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | en_US.UTF-8 | en_US.UTF-8 |        |           | =c/postgres          +
+           |          |          |                 |             |             |        |           | postgres=CTc/postgres
+(4 rows)
 
 
 
